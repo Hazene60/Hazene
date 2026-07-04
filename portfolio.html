@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Portfolio — Hazene, motion design pour SaaS & startups</title>
+<meta name="description" content="Toutes les réalisations de Yoann Hazene : vidéos de présentation, product explainers et VSL en motion design pour SaaS, startups et produits tech." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'TASA Orbiter';src:url('fonts/TASAOrbiter.woff2') format('woff2'),url('fonts/TASAOrbiter.ttf') format('truetype');font-weight:400 800;font-style:normal;font-display:swap}
+:root{
+  --bg:#fbfbfa;--bg-soft:#f4f3f1;--surface:#ffffff;
+  --border:rgba(17,17,17,.08);--border-strong:rgba(17,17,17,.16);
+  --text:#16161a;--muted:#56565e;--faint:#8a8a93;
+  --accent:#5b54f0;--accent-2:#9b8cff;
+  --radius:16px;--maxw:1120px;
+  --font:'TASA Orbiter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  --display:'Instrument Serif',Georgia,serif;
+  --shadow:0 24px 60px -28px rgba(20,20,40,.22);
+  --transparent:transparent;
+  --c1:#c7d2fe;--c2:#ddd6fe;--c3:#bae6fd;--c4:#e9d5ff;--c5:#a5b4fc;
+  --aurora:repeating-linear-gradient(100deg,var(--c1) 10%,var(--c2) 15%,var(--c3) 20%,var(--c4) 25%,var(--c5) 30%);
+  --base-gradient:repeating-linear-gradient(100deg,#fff 0%,#fff 7%,var(--transparent) 10%,var(--transparent) 12%,#fff 16%);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:24px;padding-right:24px}
+.eyebrow{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:16px}
+h1{font-weight:600;line-height:1.1;letter-spacing:-.02em;font-size:clamp(2.4rem,5vw,3.6rem)}
+h1 .serif{font-family:var(--display);font-weight:500;font-style:italic}
+.lead{color:var(--muted);font-size:1.18rem;max-width:620px;margin:18px auto 0}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 24px;border-radius:999px;font-weight:500;font-size:.95rem;
+  transition:transform .2s,background .2s,border-color .2s,opacity .2s,box-shadow .2s;cursor:pointer;border:1px solid transparent;white-space:nowrap}
+.btn-primary{background:var(--text);color:#fff;box-shadow:0 10px 24px -12px rgba(0,0,0,.4)}
+.btn-primary:hover{transform:translateY(-2px);opacity:.9}
+.btn-ghost{border-color:var(--border-strong);color:var(--text);background:var(--surface)}
+.btn-ghost:hover{background:var(--bg-soft);transform:translateY(-2px)}
+/* Nav */
+header.nav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(12px);
+  background:rgba(251,251,250,0);border-bottom:1px solid transparent;transition:background .3s,border-color .3s}
+header.nav.scrolled{background:rgba(251,251,250,.8);border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:500;font-size:1.25rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text)}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{color:var(--muted);font-size:.93rem;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+@media(max-width:640px){.nav-links a:not(.btn){display:none}}
+/* Header aurora */
+.pf-hero{position:relative;overflow:hidden;padding:170px 0 70px;text-align:center}
+.aurora-wrap{position:absolute;inset:0;overflow:hidden;z-index:0}
+.aurora{pointer-events:none;position:absolute;inset:-10px;opacity:.6;background-image:var(--base-gradient),var(--aurora);
+  background-size:300%,200%;background-position:50% 50%,50% 50%;filter:blur(10px);
+  -webkit-mask-image:radial-gradient(ellipse at 50% 0%,#000 10%,var(--transparent) 70%);mask-image:radial-gradient(ellipse at 50% 0%,#000 10%,var(--transparent) 70%)}
+.aurora::after{content:"";position:absolute;inset:0;background-image:var(--base-gradient),var(--aurora);
+  background-size:200%,100%;background-attachment:fixed;mix-blend-mode:multiply;animation:aurora 60s linear infinite}
+@keyframes aurora{from{background-position:50% 50%,50% 50%}to{background-position:350% 50%,350% 50%}}
+@media(prefers-reduced-motion:reduce){.aurora::after{animation:none}}
+.pf-hero .inner{position:relative;z-index:2}
+.back{display:inline-flex;align-items:center;gap:7px;color:var(--muted);font-size:.92rem;margin-bottom:22px;transition:color .2s}
+.back:hover{color:var(--text)}
+/* Grille */
+.pf-section{padding:20px 0 130px}
+.pf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:22px;margin-top:8px}
+.pf-card{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid var(--border);background:var(--bg-soft);box-shadow:var(--shadow);cursor:pointer;display:block}
+.pf-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;transition:transform .5s ease}
+.pf-card:hover img{transform:scale(1.05)}
+.pf-card::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(43,31,104,.86) 0%,rgba(91,84,240,.3) 42%,rgba(149,168,255,0) 68%)}
+.pf-cap{position:absolute;inset:auto 0 0 0;z-index:2;padding:20px;color:#fff;display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+.pf-cap .t{font-weight:600;font-size:1.18rem;letter-spacing:-.01em}
+.pf-cap .ty{font-size:.82rem;opacity:.85;margin-top:2px}
+.pf-cap .go{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .25s,background .25s}
+.pf-card:hover .pf-cap .go{background:var(--accent);transform:rotate(-45deg)}
+/* Footer */
+footer{border-top:1px solid var(--border);padding:44px 0;color:var(--faint);font-size:.9rem}
+.foot-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
+.foot-links{display:flex;gap:24px}
+.foot-links a:hover{color:var(--text)}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html" class="logo">Hazene</a>
+    <nav class="nav-links">
+      <a href="index.html">Accueil</a>
+      <a href="index.html#process">Process</a>
+      <a href="index.html#offre">Réserver</a>
+      <a href="index.html#contact" class="btn btn-ghost">Prendre RDV</a>
+    </nav>
+  </div>
+</header>
+
+<section class="pf-hero">
+  <div class="aurora-wrap"><div class="aurora"></div></div>
+  <div class="inner wrap">
+    <a href="index.html" class="back">← Retour à l'accueil</a>
+    <p class="eyebrow">Portfolio</p>
+    <h1>Toutes mes <span class="serif">réalisations</span>.</h1>
+    <p class="lead">Vidéos de présentation, product explainers et VSL en motion design pour SaaS, startups et produits tech.</p>
+  </div>
+</section>
+
+<section class="pf-section wrap">
+  <div class="pf-grid" id="pfGrid"></div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div>© <span id="year"></span> Yoann Hazene. Tous droits réservés.</div>
+    <div class="foot-links">
+      <a href="index.html">Accueil</a>
+      <a href="index.html#offre">Réserver</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 20));
+
+const THUMB_RES=['maxresdefault','sddefault','hqdefault','mqdefault'];
+const THUMB_CB=Math.floor(Date.now()/600000); // change toutes les 10 min : miniatures YouTube fraîches, cache court conservé
+function loadThumb(img){
+  const id=img.dataset.id;let i=0;
+  function nx(){ if(i<THUMB_RES.length){ img.src='https://i.ytimg.com/vi/'+id+'/'+THUMB_RES[i]+'.jpg?cb='+THUMB_CB; } }
+  img.onerror=function(){ i++; nx(); };
+  img.onload=function(){ if(img.naturalWidth<=120){ i++; nx(); } };
+  nx();
+}
+const ALL=[
+  {id:'z3gSkUamars',t:'Explainer GPT',type:'Product Explainer'},
+  {id:'LEphGSek948',t:'Claude',type:'Product Explainer'},
+  {id:'5x0po4I1C1I',t:'RISE',type:'Vidéo de présentation'},
+  {id:'7MGRW9XjuBI',t:'Kosmos',type:'Vidéo de présentation'},
+  {id:'Xf14NxcPEeQ',t:'AdTarget',type:'Vidéo de présentation'},
+  {id:'bX8BbXoE4GA',t:'RoastMyNotion',type:'Vidéo de présentation'},
+  {id:'eZ9r_COVCgE',t:'Receiptable',type:'VSL'},
+  {id:'Omu3B6eXBhk',t:'LeaderRising',type:'Vidéo de présentation'},
+  {id:'6sFEh6a_YTM',t:'Leo.AI',type:'Vidéo de présentation'},
+  {id:'lHBZo9Vq_J8',t:'Tom AI',type:'Vidéo de présentation'},
+  {id:'7YuMb3bkUe0',t:'RISE Floor',type:'Vidéo de présentation'},
+  {id:'iG1yqkTDgG4',t:'RISE Looping',type:'Product Explainer'}
+];
+const grid=document.getElementById('pfGrid');
+ALL.forEach(v=>{
+  const a=document.createElement('a');a.className='pf-card';a.href='https://youtu.be/'+v.id;a.target='_blank';a.rel='noopener';
+  a.innerHTML='<img alt="'+v.t+'" data-id="'+v.id+'" loading="lazy">'
+    +'<div class="pf-cap"><div><div class="t">'+v.t+'</div><div class="ty">'+v.type+'</div></div>'
+    +'<span class="go"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>';
+  grid.appendChild(a);
+  loadThumb(a.querySelector('img'));
+});
+</script>
+</body>
+</html>

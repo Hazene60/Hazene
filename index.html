@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Hazene — Vidéos de présentation en motion design pour SaaS & startups</title>
+<meta name="description" content="Je transforme des sujets complexes en vidéos de présentation qui convertissent. Motion design sur-mesure pour SaaS, startups et produits tech. Par Yoann Hazene." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'TASA Orbiter';src:url('fonts/TASAOrbiter.woff2') format('woff2'),url('fonts/TASAOrbiter.ttf') format('truetype');font-weight:400 800;font-style:normal;font-display:swap}
+/* ============================================================
+   THÈME CLAIR — variables globales
+   ============================================================ */
+:root{
+  --bg:#fbfbfa;--bg-soft:#f4f3f1;--surface:#ffffff;
+  --border:rgba(17,17,17,.08);--border-strong:rgba(17,17,17,.16);
+  --text:#16161a;--muted:#56565e;--faint:#8a8a93;
+  --accent:#5b54f0;--accent-2:#9b8cff;
+  --radius:16px;--maxw:1120px;
+  --font:'TASA Orbiter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  --display:'Instrument Serif',Georgia,serif;
+  --shadow:0 24px 60px -28px rgba(20,20,40,.22);
+  --transparent:transparent;
+  --c1:#c7d2fe;--c2:#ddd6fe;--c3:#bae6fd;--c4:#e9d5ff;--c5:#a5b4fc;
+  --aurora:repeating-linear-gradient(100deg,var(--c1) 10%,var(--c2) 15%,var(--c3) 20%,var(--c4) 25%,var(--c5) 30%);
+  --base-gradient:repeating-linear-gradient(100deg,#fff 0%,#fff 7%,var(--transparent) 10%,var(--transparent) 12%,#fff 16%);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:24px;padding-right:24px}
+section{padding:150px 0}
+@media(max-width:640px){section{padding:90px 0}}
+.eyebrow{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);font-weight:600;margin-bottom:16px}
+h1,h2,h3{font-weight:600;line-height:1.1;letter-spacing:-.02em}
+h2{font-size:clamp(2.2rem,4.2vw,3.2rem);margin-bottom:20px}
+h2 .serif,h1 .serif{font-family:var(--display);font-weight:500;font-style:italic;letter-spacing:-.01em}
+.lead{color:var(--muted);font-size:1.18rem;max-width:600px}
+
+/* Boutons */
+.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 24px;border-radius:999px;font-weight:500;font-size:.95rem;
+  transition:transform .2s,background .2s,border-color .2s,opacity .2s,box-shadow .2s;cursor:pointer;border:1px solid transparent;white-space:nowrap}
+.btn-primary{background:var(--text);color:#fff;box-shadow:0 10px 24px -12px rgba(0,0,0,.4)}
+.btn-primary:hover{transform:translateY(-2px);opacity:.9}
+.btn-ghost{border-color:var(--border-strong);color:var(--text);background:var(--surface)}
+.btn-ghost:hover{background:var(--bg-soft);transform:translateY(-2px)}
+
+/* Nav */
+header.nav{position:fixed;top:0;left:0;right:0;z-index:50;backdrop-filter:blur(12px);
+  background:rgba(251,251,250,0);border-bottom:1px solid transparent;transition:background .3s,border-color .3s}
+header.nav.scrolled{background:rgba(251,251,250,.8);border-bottom:1px solid var(--border)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:inline-flex;align-items:baseline;font-weight:500;font-size:1.25rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text)}
+.logo .tm{font-size:.5em;font-weight:500;vertical-align:super;margin-left:3px;letter-spacing:0;color:var(--faint)}
+.nav-links{display:flex;gap:30px;align-items:center}
+.nav-links a{color:var(--muted);font-size:.93rem;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{margin-left:6px}
+.burger{display:none;background:none;border:0;color:var(--text);cursor:pointer;font-size:1.3rem}
+@media(max-width:820px){.nav-links{display:none}.burger{display:block}}
+
+/* ===================== HERO + AURORA ===================== */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:120px 0 90px}
+.aurora-wrap{position:absolute;inset:0;overflow:hidden;z-index:0}
+.aurora{pointer-events:none;position:absolute;inset:-10px;opacity:.6;background-image:var(--base-gradient),var(--aurora);
+  background-size:300%,200%;background-position:50% 50%,50% 50%;filter:blur(10px);will-change:transform;
+  -webkit-mask-image:radial-gradient(ellipse at 100% 0%,#000 10%,var(--transparent) 70%);mask-image:radial-gradient(ellipse at 100% 0%,#000 10%,var(--transparent) 70%)}
+.aurora::after{content:"";position:absolute;inset:0;background-image:var(--base-gradient),var(--aurora);
+  background-size:200%,100%;background-attachment:fixed;mix-blend-mode:multiply;animation:aurora 60s linear infinite}
+@keyframes aurora{from{background-position:50% 50%,50% 50%}to{background-position:350% 50%,350% 50%}}
+@media(prefers-reduced-motion:reduce){.aurora::after{animation:none}}
+.hero-content{position:relative;z-index:2;max-width:960px;padding:0 24px}
+.hero h1{font-size:clamp(2.6rem,4.6vw,3.7rem);margin-bottom:24px}
+.d-br{display:none}
+@media(min-width:760px){.d-br{display:inline}}
+.hero .sub{color:var(--muted);font-size:clamp(1.05rem,2vw,1.3rem);max-width:600px;margin:0 auto 36px}
+.hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.badge{display:inline-flex;align-items:center;gap:8px;margin-bottom:22px;padding:7px 16px;border:1px solid var(--border);border-radius:999px;font-size:.82rem;color:var(--muted);background:rgba(255,255,255,.6)}
+.dot{width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 3px rgba(34,197,94,.18)}
+
+/* ===================== PARTENAIRES / LOGOS ===================== */
+.partners{padding:72px 0 0;overflow:hidden}
+.partners p{text-align:center;color:var(--faint);font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:34px}
+.marquee{position:relative;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee-track{display:flex;align-items:center;gap:clamp(40px,6vw,80px);width:max-content;animation:marquee 30s linear infinite}
+.partners:hover .marquee-track{animation-play-state:paused}
+.logo-img{height:34px;width:auto;object-fit:contain;flex-shrink:0;filter:grayscale(1);opacity:.55;transition:filter .3s,opacity .3s}
+.logo-img:hover{filter:grayscale(0);opacity:1}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+
+/* ===================== CARROUSEL RÉALISATIONS (Gallery6) ===================== */
+.g6-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:8px}
+.g6-demolink{display:inline-block;margin-top:14px;color:var(--accent);font-weight:500;font-size:.95rem}
+.g6-demolink:hover{opacity:.78}
+.g6-nav{display:flex;gap:10px;flex-shrink:0}
+.cnav{width:48px;height:48px;border-radius:50%;border:1px solid var(--border-strong);background:var(--surface);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.25rem;color:var(--text);
+  transition:transform .2s,background .2s,box-shadow .2s,opacity .2s}
+.cnav:hover{background:var(--bg-soft);box-shadow:var(--shadow)}
+.cnav:disabled{opacity:.32;cursor:default}
+.cs-stage{position:relative;width:100%;height:clamp(360px,50vh,440px);margin-top:56px;perspective:1200px}
+.cs-card{position:absolute;left:50%;bottom:20px;width:min(88vw,480px);height:clamp(240px,40vh,300px);
+  border-radius:18px;overflow:hidden;border:4px solid rgba(17,17,17,.08);box-shadow:0 34px 60px -26px rgba(20,20,40,.55);
+  transform-style:preserve-3d;transition:transform .55s cubic-bezier(.22,.72,.28,1),opacity .4s;cursor:pointer;background:var(--bg-soft);
+  will-change:transform;touch-action:pan-y;-webkit-user-select:none;user-select:none}
+.cs-card.active{cursor:grab}
+.cs-card.active:active{cursor:grabbing}
+.cs-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;pointer-events:none;-webkit-user-drag:none}
+.cs-card::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(43,31,104,.85) 0%,rgba(91,84,240,.35) 38%,rgba(149,168,255,0) 66%)}
+.cs-cap{position:absolute;inset:auto 0 0 0;z-index:2;padding:22px;color:#fff;font-weight:600;font-size:1.22rem;letter-spacing:-.01em}
+.cs-foot{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:36px}
+.cs-dots{display:flex;gap:9px}
+.cs-dots button{width:9px;height:9px;border-radius:50%;border:0;padding:0;background:var(--border-strong);cursor:pointer;transition:transform .2s,background .2s}
+.cs-dots button.on{background:var(--accent);transform:scale(1.4)}
+.cs-open{display:inline-flex;align-items:center;gap:7px;font-size:.92rem;font-weight:500;color:var(--accent)}
+.cs-open svg{transition:transform .2s}
+.cs-open:hover svg{transform:translateX(4px)}
+@media(max-width:620px){.cnav{width:44px;height:44px;font-size:1.15rem}}
+
+/* ===================== PROCESS ===================== */
+.steps{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;margin-top:60px}
+@media(max-width:560px){.steps{grid-template-columns:1fr}}
+.step{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px;overflow:hidden;position:relative;
+  transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s,border-color .3s}
+.step:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--border-strong)}
+.step-num{display:inline-flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:12px;
+  background:var(--bg-soft);font-family:var(--display);font-size:1.3rem;color:var(--accent);margin-bottom:18px;transition:background .3s,transform .3s}
+.step:hover .step-num{background:var(--accent);color:#fff;transform:rotate(-6deg) scale(1.06)}
+.step h3{font-size:1.12rem;margin-bottom:7px}
+.step p{color:var(--muted);font-size:.94rem}
+.step::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--accent);transition:width .4s ease}
+.step:hover::after{width:100%}
+
+/* ===================== RÉSERVATION (Calendly) ===================== */
+.cal-embed{margin-top:40px;border:1px solid var(--border);border-radius:20px;overflow:hidden;background:var(--surface);box-shadow:var(--shadow)}
+.calendly-inline-widget{width:100%}
+
+/* ===================== FAQ ===================== */
+.faq{max-width:760px;margin:42px auto 0}
+details{border-bottom:1px solid var(--border);padding:6px 0}
+summary{list-style:none;cursor:pointer;padding:20px 0;font-size:1.06rem;font-weight:500;display:flex;justify-content:space-between;align-items:center;gap:20px}
+summary::-webkit-details-marker{display:none}
+summary .plus{transition:transform .25s;color:var(--accent);font-size:1.4rem;flex-shrink:0}
+details[open] summary .plus{transform:rotate(45deg)}
+details p{color:var(--muted);padding:0 0 22px;max-width:640px}
+
+/* ===================== CONTACT ===================== */
+.cta{position:relative;border:1px solid var(--border);border-radius:28px;overflow:hidden;padding:78px 32px;text-align:center;background:var(--surface);box-shadow:var(--shadow)}
+.cta .aurora{opacity:.55}
+.cta-inner{position:relative;z-index:2}
+.cta h2{margin-bottom:14px}
+.cta p{color:var(--muted);max-width:500px;margin:0 auto 30px}
+.contact-meta{display:flex;gap:26px;justify-content:center;flex-wrap:wrap;margin-top:26px;color:var(--muted);font-size:.92rem}
+.contact-meta a:hover{color:var(--accent)}
+
+/* Footer */
+footer{border-top:1px solid var(--border);padding:44px 0;color:var(--faint);font-size:.9rem}
+.foot-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
+.foot-links{display:flex;gap:24px}
+.foot-links a:hover{color:var(--text)}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.visible{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#" class="logo">Hazene</a>
+    <nav class="nav-links">
+      <a href="#realisations">Réalisations</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="#process">Process</a>
+      <a href="#offre">Réserver</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="btn btn-ghost nav-cta">Prendre RDV</a>
+    </nav>
+    <button class="burger" aria-label="Menu" onclick="document.querySelector('.nav-links').style.display='flex'">☰</button>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="aurora-wrap"><div class="aurora"></div></div>
+  <div class="hero-content">
+    <span class="badge"><span class="dot"></span> Disponible pour de nouveaux projets</span>
+    <h1>Des vidéos de présentation <br class="d-br">qui transforment vos <br class="d-br">visiteurs en <span class="serif">clients</span>.</h1>
+    <p class="sub">J'aide les startups et les SaaS à expliquer leur produit clairement pour convaincre plus vite et convertir davantage.</p>
+    <div class="hero-cta">
+      <a href="https://calendly.com/yohazene4/30min" target="_blank" rel="noopener" class="btn btn-primary">Réserver un appel découverte →</a>
+      <a href="#realisations" class="btn btn-ghost">Voir mes réalisations</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PARTENAIRES / LOGOS (marquee) ===================== -->
+<div class="partners reveal">
+  <p>Ils m'ont fait confiance</p>
+  <div class="marquee">
+    <div class="marquee-track">
+      <img src="logos/n.png" alt="Nitro" class="logo-img">
+      <img src="logos/rise.png" alt="RISE" class="logo-img">
+      <img src="logos/leo.png" alt="Leo.AI" class="logo-img">
+      <img src="logos/kosmos.png" alt="Kosmos" class="logo-img">
+      <img src="logos/tom.png" alt="Tom AI" class="logo-img">
+      <img src="logos/receiptable.svg" alt="Receiptable" class="logo-img">
+      <!-- copie identique pour la boucle continue -->
+      <img src="logos/n.png" alt="" aria-hidden="true" class="logo-img">
+      <img src="logos/rise.png" alt="" aria-hidden="true" class="logo-img">
+      <img src="logos/leo.png" alt="" aria-hidden="true" class="logo-img">
+      <img src="logos/kosmos.png" alt="" aria-hidden="true" class="logo-img">
+      <img src="logos/tom.png" alt="" aria-hidden="true" class="logo-img">
+      <img src="logos/receiptable.svg" alt="" aria-hidden="true" class="logo-img">
+    </div>
+  </div>
+</div>
+
+<!-- ===================== RÉALISATIONS (carrousel) ===================== -->
+<section id="realisations">
+  <div class="wrap">
+    <div class="g6-head reveal">
+      <div>
+        <p class="eyebrow">Réalisations</p>
+        <h2>Des vidéos qui <span class="serif">racontent</span> le produit.</h2>
+        <a class="g6-demolink" href="portfolio.html">Voir le portfolio complet →</a>
+      </div>
+      <div class="g6-nav">
+        <button class="cnav" id="cPrev" aria-label="Précédent">&#8592;</button>
+        <button class="cnav" id="cNext" aria-label="Suivant">&#8594;</button>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="cs-stage" id="csStage"></div>
+    <div class="cs-foot">
+      <div class="cs-dots" id="csDots"></div>
+      <a class="cs-open" id="csOpen" target="_blank" rel="noopener">Voir la vidéo <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROCESS ===================== -->
+<section id="process" class="wrap">
+  <div class="reveal">
+    <p class="eyebrow">Comment je travaille</p>
+    <h2>Un process <span class="serif">clair</span>, du brief à la livraison.</h2>
+    <p class="lead">Chaque étape est pensée pour servir un message simple : ce qui doit être compris, retenu et désiré.</p>
+  </div>
+  <div class="steps">
+    <div class="step reveal"><span class="step-num">01</span><h3>Brief stratégique</h3><p>On définit le produit, les utilisateurs, le problème, les fonctionnalités, les assets et le message — tout est centralisé sur une fiche projet.</p></div>
+    <div class="step reveal"><span class="step-num">02</span><h3>Storyboard</h3><p>On transforme le brief en une vidéo claire, scène par scène. Chaque plan est validé avant de passer à la production.</p></div>
+    <div class="step reveal"><span class="step-num">03</span><h3>Animation</h3><p>La production complète de la vidéo : animation, illustrations, transitions, voix off si nécessaire et sound design.</p></div>
+    <div class="step reveal"><span class="step-num">04</span><h3>Livraison</h3><p>Exports, formats, derniers ajustements et livraison finale.</p></div>
+  </div>
+</section>
+
+<!-- ===================== RÉSERVATION ===================== -->
+<section id="offre" class="wrap">
+  <div class="reveal">
+    <p class="eyebrow">Réserver</p>
+    <h2>Réservez votre <span class="serif">appel découverte</span>.</h2>
+    <p class="lead">30 minutes pour parler de votre produit et voir comment je peux le mettre en vidéo. Choisissez le créneau qui vous arrange.</p>
+  </div>
+  <div class="cal-embed reveal">
+    <div class="calendly-inline-widget" data-url="https://calendly.com/yohazene4/30min?hide_gdpr_banner=1&hide_event_type_details=1" style="min-width:320px;height:720px;"></div>
+  </div>
+</section>
+
+<!-- ===================== FAQ ===================== -->
+<section id="faq" class="wrap">
+  <div class="reveal">
+    <p class="eyebrow">FAQ</p>
+    <h2>Les questions <span class="serif">fréquentes</span>.</h2>
+  </div>
+  <div class="faq reveal">
+    <details open><summary>Quel est le délai de réalisation ?<span class="plus">+</span></summary><p>Le délai estimé est de 7 à 10 jours ouvrés pour un Explainer de 60 secondes, à compter de la validation du brief et de l'acompte.</p></details>
+    <details><summary>Comment se passe le paiement ?<span class="plus">+</span></summary><p>50% d'acompte avant le démarrage du projet, puis 50% à la livraison de la vidéo finale.</p></details>
+    <details><summary>Qu'est-ce qui est inclus dans le prix ?<span class="plus">+</span></summary><p>Tout : script, storyboard, motion design, sound design, 2 rounds de retours à chaque étape, et la livraison dans tous les formats convenus (16:9, vertical en option).</p></details>
+    <details><summary>Puis-je demander des modifications ?<span class="plus">+</span></summary><p>Oui. Deux rounds de retours sont inclus à chaque étape (script, storyboard, version finale). Les ajustements mineurs sont réalisés sans impact. Une refonte importante ou de nouvelles scènes après validation peuvent faire l'objet d'un devis complémentaire.</p></details>
+    <details><summary>Pour quels types de projets travaillez-vous ?<span class="plus">+</span></summary><p>Principalement des vidéos de présentation pour SaaS, startups, produits IA et TPE/PME — notamment lors d'un lancement, d'une nouvelle fonctionnalité ou pour mieux expliquer une offre.</p></details>
+  </div>
+</section>
+
+<!-- ===================== CONTACT / RDV ===================== -->
+<section id="contact" class="wrap">
+  <div class="cta reveal">
+    <div class="aurora-wrap"><div class="aurora"></div></div>
+    <div class="cta-inner">
+      <p class="eyebrow">Contact</p>
+      <h2>Donnons de la <span class="serif">clarté</span> à votre produit.</h2>
+      <p>Réservez un appel découverte de 30 min. On parle de votre produit et de la meilleure façon de le mettre en vidéo.</p>
+      <div class="hero-cta">
+        <a href="https://calendly.com/yohazene4/30min" target="_blank" rel="noopener" class="btn btn-primary">Réserver un créneau →</a>
+        <a href="mailto:yohazene4@gmail.com" class="btn btn-ghost">M'écrire</a>
+      </div>
+      <div class="contact-meta">
+        <a href="mailto:yohazene4@gmail.com">✉ yohazene4@gmail.com</a>
+        <a href="https://x.com/Hazene_Edit" target="_blank" rel="noopener">𝕏 @Hazene_Edit</a>
+        <a href="https://www.linkedin.com/in/yoann-hazene-72b917331/" target="_blank" rel="noopener">in LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+<footer>
+  <div class="wrap foot-inner">
+    <div>© <span id="year"></span> Yoann Hazene. Tous droits réservés.</div>
+    <div class="foot-links">
+      <a href="#realisations">Réalisations</a>
+      <a href="#offre">Réserver</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 20));
+
+// Apparition au scroll
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting){ e.target.style.transitionDelay = (i % 4 * 60) + 'ms'; e.target.classList.add('visible'); io.unobserve(e.target); }
+  });
+}, {threshold:.12});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// ---------- Carrousel réalisations (Gallery6) ----------
+const REELS=[
+  {id:'z3gSkUamars',t:'Explainer GPT',type:'Product Explainer'},
+  {id:'LEphGSek948',t:'Claude',type:'Product Explainer'},
+  {id:'5x0po4I1C1I',t:'RISE',type:'Vidéo de présentation'},
+  {id:'7MGRW9XjuBI',t:'Kosmos',type:'Vidéo de présentation'},
+  {id:'Xf14NxcPEeQ',t:'AdTarget',type:'Vidéo de présentation'},
+  {id:'bX8BbXoE4GA',t:'RoastMyNotion',type:'Vidéo de présentation'}
+];
+// Cascade de résolutions YouTube : on garde la meilleure miniature qui existe vraiment.
+const THUMB_RES=['maxresdefault','sddefault','hqdefault','mqdefault'];
+const THUMB_CB=Math.floor(Date.now()/600000); // change toutes les 10 min : miniatures YouTube fraîches, cache court conservé
+function loadThumb(img){
+  const id=img.dataset.id;let i=0;
+  function nx(){ if(i<THUMB_RES.length){ img.src='https://i.ytimg.com/vi/'+id+'/'+THUMB_RES[i]+'.jpg?cb='+THUMB_CB; } }
+  img.onerror=function(){ i++; nx(); };
+  img.onload=function(){ if(img.naturalWidth<=120){ i++; nx(); } };
+  nx();
+}
+// Pile de cartes 3D en éventail (CardStack)
+const stage=document.getElementById('csStage'),dotsEl=document.getElementById('csDots'),openEl=document.getElementById('csOpen');
+const CFG={overlap:.5,spread:44,maxVis:7,depth:130,tilt:12,lift:22,aScale:1.03,iScale:.93};
+const maxOff=Math.floor(CFG.maxVis/2),stepDeg=maxOff>0?CFG.spread/maxOff:0;
+let active=Math.max(0,REELS.findIndex(v=>v.id==='5x0po4I1C1I')),suppressClick=false; // démarre sur RISE
+const cards=REELS.map((v,i)=>{
+  const c=document.createElement('div');c.className='cs-card';
+  c.innerHTML='<img alt="'+v.t+'" data-id="'+v.id+'"><div class="cs-cap">'+v.t+'</div>';
+  c.addEventListener('click',()=>{ if(suppressClick){suppressClick=false;return;} if(i===active){openActive();}else{setActive(i);} });
+  stage.appendChild(c);loadThumb(c.querySelector('img'));
+  const d=document.createElement('button');d.setAttribute('aria-label','Vidéo '+(i+1));d.onclick=(e)=>{e.stopPropagation();setActive(i);};dotsEl.appendChild(d);
+  return c;
+});
+function signedOffset(i,a,len){let raw=i-a;if(len<=1)return raw;const alt=raw>0?raw-len:raw+len;return Math.abs(alt)<Math.abs(raw)?alt:raw;}
+function layout(){
+  const len=cards.length,cw=cards[0].offsetWidth||480,spacing=Math.round(cw*(1-CFG.overlap));
+  cards.forEach((card,i)=>{
+    const off=signedOffset(i,active,len),abs=Math.abs(off);
+    if(abs>maxOff){card.style.opacity='0';card.style.pointerEvents='none';card.style.visibility='hidden';return;}
+    card.style.visibility='visible';card.style.pointerEvents='auto';card.style.opacity='1';
+    const isA=off===0;
+    const x=off*spacing,y=abs*10+(isA?-CFG.lift:0),z=-abs*CFG.depth,rz=off*stepDeg,rx=isA?0:CFG.tilt,sc=isA?CFG.aScale:CFG.iScale;
+    card.style.zIndex=String(100-abs);
+    card.style.transform='translateX(calc(-50% + '+x+'px)) translateY('+y+'px) translateZ('+z+'px) rotateZ('+rz+'deg) rotateX('+rx+'deg) scale('+sc+')';
+    card.classList.toggle('active',isA);
+  });
+  [...dotsEl.children].forEach((d,i)=>d.classList.toggle('on',i===active));
+  openEl.href='https://youtu.be/'+REELS[active].id;
+}
+function setActive(i){active=((i%cards.length)+cards.length)%cards.length;layout();restart();}
+function prev(){setActive(active-1);}
+function next(){setActive(active+1);}
+function openActive(){window.open('https://youtu.be/'+REELS[active].id,'_blank','noopener');}
+document.getElementById('cPrev').onclick=prev;
+document.getElementById('cNext').onclick=next;
+// Swipe sur la carte active
+let dragId=null,dragStart=0,dragCard=null,moved=false;
+stage.addEventListener('pointerdown',e=>{const card=e.target.closest('.cs-card');if(!card||!card.classList.contains('active'))return;dragId=e.pointerId;dragStart=e.clientX;dragCard=card;moved=false;card.style.transition='none';});
+window.addEventListener('pointermove',e=>{if(dragId===null||e.pointerId!==dragId)return;const dx=e.clientX-dragStart;if(Math.abs(dx)>6)moved=true;dragCard.style.transform='translateX(calc(-50% + '+dx+'px)) translateY(-'+CFG.lift+'px) translateZ(0px) rotateZ(0deg) scale('+CFG.aScale+')';});
+window.addEventListener('pointerup',e=>{if(dragId===null||e.pointerId!==dragId)return;const dx=e.clientX-dragStart;dragCard.style.transition='';dragId=null;if(moved)suppressClick=true;const th=Math.min(150,(dragCard.offsetWidth||480)*.22);if(dx>th)prev();else if(dx<-th)next();else layout();dragCard=null;});
+// Autoplay (pause au survol)
+let timer=null;
+function startAuto(){stopAuto();timer=setInterval(()=>{if(!document.hidden)next();},4500);}
+function stopAuto(){if(timer){clearInterval(timer);timer=null;}}
+function restart(){startAuto();}
+stage.addEventListener('mouseenter',stopAuto);
+stage.addEventListener('mouseleave',startAuto);
+addEventListener('resize',layout);
+layout();startAuto();
+</script>
+</body>
+</html>
