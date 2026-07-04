@@ -79,6 +79,15 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--faint);font
 .foot-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px}
 .foot-links{display:flex;gap:24px}
 .foot-links a:hover{color:var(--text)}
+/* Lecteur vidéo (lightbox) */
+.lb{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:24px;
+  background:rgba(12,12,20,.82);backdrop-filter:blur(6px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .25s,visibility .25s}
+.lb.open{opacity:1;visibility:visible;pointer-events:auto}
+.lb-video{position:relative;width:min(1000px,92vw);aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;box-shadow:0 40px 90px -30px rgba(0,0,0,.7)}
+.lb-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.lb-close{position:absolute;top:20px;right:24px;z-index:2;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.3);
+  background:rgba(255,255,255,.12);color:#fff;font-size:1.7rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s,transform .2s}
+.lb-close:hover{background:rgba(255,255,255,.22);transform:scale(1.06)}
 </style>
 </head>
 <body>
@@ -120,6 +129,12 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--faint);font
   </div>
 </footer>
 
+<!-- Lecteur vidéo (lightbox) -->
+<div class="lb" id="lb" aria-hidden="true">
+  <button class="lb-close" id="lbClose" aria-label="Fermer la vidéo">&times;</button>
+  <div class="lb-video" id="lbVideo"></div>
+</div>
+
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 const nav = document.getElementById('nav');
@@ -154,9 +169,20 @@ ALL.forEach(v=>{
   a.innerHTML='<img alt="'+v.t+'" data-id="'+v.id+'" loading="lazy">'
     +'<div class="pf-cap"><div><div class="t">'+v.t+'</div><div class="ty">'+v.type+'</div></div>'
     +'<span class="go"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>';
+  a.addEventListener('click',e=>{ e.preventDefault(); openVideo(v.id); });
   grid.appendChild(a);
   loadThumb(a.querySelector('img'));
 });
+// Lecteur vidéo en lightbox (fond assombri)
+const lb=document.getElementById('lb'),lbVideo=document.getElementById('lbVideo');
+function openVideo(id){
+  lbVideo.innerHTML='<iframe src="https://www.youtube.com/embed/'+id+'?autoplay=1&rel=0" title="Vidéo" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+  lb.classList.add('open');document.body.style.overflow='hidden';
+}
+function closeVideo(){lb.classList.remove('open');lbVideo.innerHTML='';document.body.style.overflow='';}
+document.getElementById('lbClose').onclick=closeVideo;
+lb.addEventListener('click',e=>{ if(e.target===lb)closeVideo(); });
+addEventListener('keydown',e=>{ if(e.key==='Escape'&&lb.classList.contains('open'))closeVideo(); });
 </script>
 </body>
 </html>
