@@ -84,15 +84,15 @@ header.nav.scrolled{background:rgba(251,251,250,.8);border-bottom:1px solid var(
 /* ===================== PARTENAIRES / LOGOS ===================== */
 .partners{padding:72px 0 0;overflow:hidden}
 .partners p{text-align:center;color:var(--faint);font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:34px}
-.marquee{position:relative;
+.marquee{display:flex;overflow:hidden;
   -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
   mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.marquee-track{display:flex;align-items:center;gap:clamp(40px,6vw,80px);width:max-content;animation:marquee 30s linear infinite}
-.partners:hover .marquee-track{animation-play-state:paused}
+.marquee-group{flex-shrink:0;display:flex;align-items:center;justify-content:space-around;min-width:100%;gap:clamp(30px,4vw,64px);animation:marquee 32s linear infinite}
+.partners:hover .marquee-group{animation-play-state:paused}
 .logo-img{height:34px;width:auto;object-fit:contain;flex-shrink:0;filter:grayscale(1);opacity:.55;transition:filter .3s,opacity .3s}
 .logo-img:hover{filter:grayscale(0);opacity:1}
-@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+@media(prefers-reduced-motion:reduce){.marquee-group{animation:none;justify-content:center}}
 
 /* ===================== CARROUSEL RÉALISATIONS (Gallery6) ===================== */
 .g6-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:8px}
@@ -214,20 +214,21 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--faint);font
 <div class="partners reveal">
   <p>Ils m'ont fait confiance</p>
   <div class="marquee">
-    <div class="marquee-track">
+    <div class="marquee-group">
       <img src="logos/n.png" alt="Nitro" class="logo-img">
       <img src="logos/rise.png" alt="RISE" class="logo-img">
       <img src="logos/leo.png" alt="Leo.AI" class="logo-img">
       <img src="logos/kosmos.png" alt="Kosmos" class="logo-img">
       <img src="logos/tom.png" alt="Tom AI" class="logo-img">
       <img src="logos/receiptable.svg" alt="Receiptable" class="logo-img">
-      <!-- copie identique pour la boucle continue -->
-      <img src="logos/n.png" alt="" aria-hidden="true" class="logo-img">
-      <img src="logos/rise.png" alt="" aria-hidden="true" class="logo-img">
-      <img src="logos/leo.png" alt="" aria-hidden="true" class="logo-img">
-      <img src="logos/kosmos.png" alt="" aria-hidden="true" class="logo-img">
-      <img src="logos/tom.png" alt="" aria-hidden="true" class="logo-img">
-      <img src="logos/receiptable.svg" alt="" aria-hidden="true" class="logo-img">
+    </div>
+    <div class="marquee-group" aria-hidden="true">
+      <img src="logos/n.png" alt="" class="logo-img">
+      <img src="logos/rise.png" alt="" class="logo-img">
+      <img src="logos/leo.png" alt="" class="logo-img">
+      <img src="logos/kosmos.png" alt="" class="logo-img">
+      <img src="logos/tom.png" alt="" class="logo-img">
+      <img src="logos/receiptable.svg" alt="" class="logo-img">
     </div>
   </div>
 </div>
