@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <radialGradient id="a" cx="88%" cy="12%" r="70%">
+      <stop offset="0%" stop-color="#ddd6fe" stop-opacity="0.9"/>
+      <stop offset="35%" stop-color="#c7d2fe" stop-opacity="0.5"/>
+      <stop offset="70%" stop-color="#fbfbfa" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#fbfbfa"/>
+  <rect width="1200" height="630" fill="url(#a)"/>
+  <text x="80" y="108" font-family="TASA Orbiter, Helvetica, Arial, sans-serif" font-size="40" letter-spacing="12" font-weight="600" fill="#8a8a93">HAZENE</text>
+  <g font-family="TASA Orbiter, Helvetica, Arial, sans-serif" font-size="82" font-weight="600" fill="#16161a" letter-spacing="-1">
+    <text x="80" y="290">Des vidéos qui</text>
+    <text x="80" y="380">transforment vos</text>
+    <text x="80" y="470">visiteurs en <tspan fill="#5b54f0">clients</tspan>.</text>
+  </g>
+  <text x="80" y="558" font-family="TASA Orbiter, Helvetica, Arial, sans-serif" font-size="30" fill="#5b54f0">Motion design pour SaaS &amp; startups</text>
+</svg>

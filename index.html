@@ -4,7 +4,20 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hazene — Vidéos de présentation en motion design pour SaaS & startups</title>
-<meta name="description" content="Je transforme des sujets complexes en vidéos de présentation qui convertissent. Motion design sur-mesure pour SaaS, startups et produits tech. Par Yoann Hazene." />
+<meta name="description" content="J'aide les startups et les SaaS à expliquer leur produit clairement pour convaincre plus vite et convertir davantage. Motion design par Yoann Hazene." />
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hazene60.github.io/Hazene/">
+<meta property="og:title" content="Hazene — Vidéos de présentation en motion design pour SaaS & startups">
+<meta property="og:description" content="J'aide les startups et les SaaS à expliquer leur produit clairement pour convaincre plus vite et convertir davantage.">
+<meta property="og:image" content="https://hazene60.github.io/Hazene/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Hazene — Vidéos de présentation pour SaaS & startups">
+<meta name="twitter:description" content="J'aide les startups et les SaaS à expliquer leur produit clairement pour convaincre plus vite et convertir davantage.">
+<meta name="twitter:image" content="https://hazene60.github.io/Hazene/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -59,6 +72,9 @@ header.nav.scrolled{background:rgba(251,251,250,.8);border-bottom:1px solid var(
 .nav-links a{color:var(--muted);font-size:.93rem;transition:color .2s}
 .nav-links a:hover{color:var(--text)}
 .nav-cta{margin-left:6px}
+.lang-toggle{border:1px solid var(--border-strong);background:var(--surface);color:var(--muted);border-radius:999px;
+  padding:6px 12px;font-size:.8rem;font-weight:600;letter-spacing:.06em;cursor:pointer;font-family:inherit;transition:color .2s,background .2s,border-color .2s}
+.lang-toggle:hover{color:var(--text);background:var(--bg-soft)}
 .burger{display:none;background:none;border:0;color:var(--text);cursor:pointer;font-size:1.3rem}
 @media(max-width:820px){.nav-links{display:none}.burger{display:block}}
 
@@ -185,12 +201,13 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--faint);font
   <div class="wrap nav-inner">
     <a href="#" class="logo">Hazene</a>
     <nav class="nav-links">
-      <a href="#realisations">Réalisations</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="#process">Process</a>
-      <a href="#offre">Réserver</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contact" class="btn btn-ghost nav-cta">Prendre RDV</a>
+      <a href="#realisations" data-i18n="nav_work">Réalisations</a>
+      <a href="portfolio.html" data-i18n="nav_portfolio">Portfolio</a>
+      <a href="#process" data-i18n="nav_process">Process</a>
+      <a href="#offre" data-i18n="nav_book">Réserver</a>
+      <a href="#faq" data-i18n="nav_faq">FAQ</a>
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Changer de langue">FR</button>
+      <a href="#contact" class="btn btn-ghost nav-cta" data-i18n="nav_cta">Prendre RDV</a>
     </nav>
     <button class="burger" aria-label="Menu" onclick="document.querySelector('.nav-links').style.display='flex'">☰</button>
   </div>
@@ -200,19 +217,19 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--faint);font
 <section class="hero">
   <div class="aurora-wrap"><div class="aurora"></div></div>
   <div class="hero-content">
-    <span class="badge"><span class="dot"></span> Disponible pour de nouveaux projets</span>
-    <h1>Des vidéos de présentation <br class="d-br">qui transforment vos <br class="d-br">visiteurs en <span class="serif">clients</span>.</h1>
-    <p class="sub">J'aide les startups et les SaaS à expliquer leur produit clairement pour convaincre plus vite et convertir davantage.</p>
+    <span class="badge"><span class="dot"></span> <span data-i18n="hero_badge">Disponible pour de nouveaux projets</span></span>
+    <h1 data-i18n-html="hero_h1">Des vidéos de présentation <br class="d-br">qui transforment vos <br class="d-br">visiteurs en <span class="serif">clients</span>.</h1>
+    <p class="sub" data-i18n="hero_sub">J'aide les startups et les SaaS à expliquer leur produit clairement pour convaincre plus vite et convertir davantage.</p>
     <div class="hero-cta">
-      <a href="https://calendly.com/yohazene4/30min" target="_blank" rel="noopener" class="btn btn-primary">Réserver un appel découverte →</a>
-      <a href="#realisations" class="btn btn-ghost">Voir mes réalisations</a>
+      <a href="https://calendly.com/yohazene4/30min" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="hero_cta1">Réserver un appel découverte →</a>
+      <a href="#realisations" class="btn btn-ghost" data-i18n="hero_cta2">Voir mes réalisations</a>
     </div>
   </div>
 </section>
 
 <!-- ===================== PARTENAIRES / LOGOS (marquee) ===================== -->
 <div class="partners reveal">
-  <p>Ils m'ont fait confiance</p>
+  <p data-i18n="partners_label">Ils m'ont fait confiance</p>
   <div class="marquee">
     <div class="marquee-group">
       <img src="logos/n.png" alt="Nitro" class="logo-img">
@@ -238,9 +255,9 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--faint);font
   <div class="wrap">
     <div class="g6-head reveal">
       <div>
-        <p class="eyebrow">Réalisations</p>
-        <h2>Des vidéos qui <span class="serif">racontent</span> le produit.</h2>
-        <a class="g6-demolink" href="portfolio.html">Voir le portfolio complet →</a>
+        <p class="eyebrow" data-i18n="work_eyebrow">Réalisations</p>
+        <h2 data-i18n-html="work_h2">Des vidéos qui <span class="serif">racontent</span> le produit.</h2>
+        <a class="g6-demolink" href="portfolio.html" data-i18n="work_portfolio">Voir le portfolio complet →</a>
       </div>
       <div class="g6-nav">
         <button class="cnav" id="cPrev" aria-label="Précédent">&#8592;</button>
@@ -252,7 +269,7 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--faint);font
     <div class="cs-stage" id="csStage"></div>
     <div class="cs-foot">
       <div class="cs-dots" id="csDots"></div>
-      <a class="cs-open" id="csOpen" target="_blank" rel="noopener">Voir la vidéo <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="cs-open" id="csOpen" target="_blank" rel="noopener"><span data-i18n="see_video">Voir la vidéo</span> <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
   </div>
 </section>
@@ -260,24 +277,24 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--faint);font
 <!-- ===================== PROCESS ===================== -->
 <section id="process" class="wrap">
   <div class="reveal">
-    <p class="eyebrow">Comment je travaille</p>
-    <h2>Un process <span class="serif">clair</span>, du brief à la livraison.</h2>
-    <p class="lead">Chaque étape est pensée pour servir un message simple : ce qui doit être compris, retenu et désiré.</p>
+    <p class="eyebrow" data-i18n="process_eyebrow">Comment je travaille</p>
+    <h2 data-i18n-html="process_h2">Un process <span class="serif">clair</span>, du brief à la livraison.</h2>
+    <p class="lead" data-i18n="process_lead">Chaque étape est pensée pour servir un message simple : ce qui doit être compris, retenu et désiré.</p>
   </div>
   <div class="steps">
-    <div class="step reveal"><span class="step-num">01</span><h3>Brief stratégique</h3><p>On définit le produit, les utilisateurs, le problème, les fonctionnalités, les assets et le message — tout est centralisé sur une fiche projet.</p></div>
-    <div class="step reveal"><span class="step-num">02</span><h3>Storyboard</h3><p>On transforme le brief en une vidéo claire, scène par scène. Chaque plan est validé avant de passer à la production.</p></div>
-    <div class="step reveal"><span class="step-num">03</span><h3>Animation</h3><p>La production complète de la vidéo : animation, illustrations, transitions, voix off si nécessaire et sound design.</p></div>
-    <div class="step reveal"><span class="step-num">04</span><h3>Livraison</h3><p>Exports, formats, derniers ajustements et livraison finale.</p></div>
+    <div class="step reveal"><span class="step-num">01</span><h3 data-i18n="step1_t">Brief stratégique</h3><p data-i18n="step1_p">On définit le produit, les utilisateurs, le problème, les fonctionnalités, les assets et le message — tout est centralisé sur une fiche projet.</p></div>
+    <div class="step reveal"><span class="step-num">02</span><h3 data-i18n="step2_t">Storyboard</h3><p data-i18n="step2_p">On transforme le brief en une vidéo claire, scène par scène. Chaque plan est validé avant de passer à la production.</p></div>
+    <div class="step reveal"><span class="step-num">03</span><h3 data-i18n="step3_t">Animation</h3><p data-i18n="step3_p">La production complète de la vidéo : animation, illustrations, transitions, voix off si nécessaire et sound design.</p></div>
+    <div class="step reveal"><span class="step-num">04</span><h3 data-i18n="step4_t">Livraison</h3><p data-i18n="step4_p">Exports, formats, derniers ajustements et livraison finale.</p></div>
   </div>
 </section>
 
 <!-- ===================== RÉSERVATION ===================== -->
 <section id="offre" class="wrap">
   <div class="reveal">
-    <p class="eyebrow">Réserver</p>
-    <h2>Réservez votre <span class="serif">appel découverte</span>.</h2>
-    <p class="lead">30 minutes pour parler de votre produit et voir comment je peux le mettre en vidéo. Choisissez le créneau qui vous arrange.</p>
+    <p class="eyebrow" data-i18n="book_eyebrow">Réserver</p>
+    <h2 data-i18n-html="book_h2">Réservez votre <span class="serif">appel découverte</span>.</h2>
+    <p class="lead" data-i18n="book_lead">30 minutes pour parler de votre produit et voir comment je peux le mettre en vidéo. Choisissez le créneau qui vous arrange.</p>
   </div>
   <div class="cal-embed reveal">
     <div class="calendly-inline-widget" data-url="https://calendly.com/yohazene4/30min?hide_gdpr_banner=1&hide_event_type_details=1" style="min-width:320px;height:720px;"></div>
@@ -287,15 +304,15 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--faint);font
 <!-- ===================== FAQ ===================== -->
 <section id="faq" class="wrap">
   <div class="reveal">
-    <p class="eyebrow">FAQ</p>
-    <h2>Les questions <span class="serif">fréquentes</span>.</h2>
+    <p class="eyebrow" data-i18n="faq_eyebrow">FAQ</p>
+    <h2 data-i18n-html="faq_h2">Les questions <span class="serif">fréquentes</span>.</h2>
   </div>
   <div class="faq reveal">
-    <details open><summary>Quel est le délai de réalisation ?<span class="plus">+</span></summary><p>Le délai estimé est de 7 à 10 jours ouvrés pour un Explainer de 60 secondes, à compter de la validation du brief et de l'acompte.</p></details>
-    <details><summary>Comment se passe le paiement ?<span class="plus">+</span></summary><p>50% d'acompte avant le démarrage du projet, puis 50% à la livraison de la vidéo finale.</p></details>
-    <details><summary>Qu'est-ce qui est inclus dans le prix ?<span class="plus">+</span></summary><p>Tout : script, storyboard, motion design, sound design, 2 rounds de retours à chaque étape, et la livraison dans tous les formats convenus (16:9, vertical en option).</p></details>
-    <details><summary>Puis-je demander des modifications ?<span class="plus">+</span></summary><p>Oui. Deux rounds de retours sont inclus à chaque étape (script, storyboard, version finale). Les ajustements mineurs sont réalisés sans impact. Une refonte importante ou de nouvelles scènes après validation peuvent faire l'objet d'un devis complémentaire.</p></details>
-    <details><summary>Pour quels types de projets travaillez-vous ?<span class="plus">+</span></summary><p>Principalement des vidéos de présentation pour SaaS, startups, produits IA et TPE/PME — notamment lors d'un lancement, d'une nouvelle fonctionnalité ou pour mieux expliquer une offre.</p></details>
+    <details open><summary><span data-i18n="faq1_q">Quel est le délai de réalisation ?</span><span class="plus">+</span></summary><p data-i18n="faq1_a">Le délai estimé est de 7 à 10 jours ouvrés pour un Explainer de 60 secondes, à compter de la validation du brief et de l'acompte.</p></details>
+    <details><summary><span data-i18n="faq2_q">Comment se passe le paiement ?</span><span class="plus">+</span></summary><p data-i18n="faq2_a">50% d'acompte avant le démarrage du projet, puis 50% à la livraison de la vidéo finale.</p></details>
+    <details><summary><span data-i18n="faq3_q">Qu'est-ce qui est inclus dans le prix ?</span><span class="plus">+</span></summary><p data-i18n="faq3_a">Tout : script, storyboard, motion design, sound design, 2 rounds de retours à chaque étape, et la livraison dans tous les formats convenus (16:9, vertical en option).</p></details>
+    <details><summary><span data-i18n="faq4_q">Puis-je demander des modifications ?</span><span class="plus">+</span></summary><p data-i18n="faq4_a">Oui. Deux rounds de retours sont inclus à chaque étape (script, storyboard, version finale). Les ajustements mineurs sont réalisés sans impact. Une refonte importante ou de nouvelles scènes après validation peuvent faire l'objet d'un devis complémentaire.</p></details>
+    <details><summary><span data-i18n="faq5_q">Pour quels types de projets travaillez-vous ?</span><span class="plus">+</span></summary><p data-i18n="faq5_a">Principalement des vidéos de présentation pour SaaS, startups, produits IA et TPE/PME — notamment lors d'un lancement, d'une nouvelle fonctionnalité ou pour mieux expliquer une offre.</p></details>
   </div>
 </section>
 
@@ -304,12 +321,12 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--faint);font
   <div class="cta reveal">
     <div class="aurora-wrap"><div class="aurora"></div></div>
     <div class="cta-inner">
-      <p class="eyebrow">Contact</p>
-      <h2>Donnons de la <span class="serif">clarté</span> à votre produit.</h2>
-      <p>Réservez un appel découverte de 30 min. On parle de votre produit et de la meilleure façon de le mettre en vidéo.</p>
+      <p class="eyebrow" data-i18n="contact_eyebrow">Contact</p>
+      <h2 data-i18n-html="contact_h2">Donnons de la <span class="serif">clarté</span> à votre produit.</h2>
+      <p data-i18n="contact_p">Réservez un appel découverte de 30 min. On parle de votre produit et de la meilleure façon de le mettre en vidéo.</p>
       <div class="hero-cta">
-        <a href="https://calendly.com/yohazene4/30min" target="_blank" rel="noopener" class="btn btn-primary">Réserver un créneau →</a>
-        <a href="mailto:yohazene4@gmail.com" class="btn btn-ghost">M'écrire</a>
+        <a href="https://calendly.com/yohazene4/30min" target="_blank" rel="noopener" class="btn btn-primary" data-i18n="contact_cta1">Réserver un créneau →</a>
+        <a href="mailto:yohazene4@gmail.com" class="btn btn-ghost" data-i18n="contact_cta2">M'écrire</a>
       </div>
       <div class="contact-meta">
         <a href="mailto:yohazene4@gmail.com">✉ yohazene4@gmail.com</a>
@@ -325,11 +342,11 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--faint);font
 
 <footer>
   <div class="wrap foot-inner">
-    <div>© <span id="year"></span> Yoann Hazene. Tous droits réservés.</div>
+    <div>© <span id="year"></span> Yoann Hazene. <span data-i18n="footer_rights">Tous droits réservés.</span></div>
     <div class="foot-links">
-      <a href="#realisations">Réalisations</a>
-      <a href="#offre">Réserver</a>
-      <a href="#contact">Contact</a>
+      <a href="#realisations" data-i18n="nav_work">Réalisations</a>
+      <a href="#offre" data-i18n="nav_book">Réserver</a>
+      <a href="#contact" data-i18n="foot_contact">Contact</a>
     </div>
   </div>
 </footer>
@@ -344,6 +361,72 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--faint);font
 document.getElementById('year').textContent = new Date().getFullYear();
 const nav = document.getElementById('nav');
 addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 20));
+
+// ---------- Bilingue FR / EN (anglais par défaut) ----------
+const T={
+  fr:{
+    nav_work:`Réalisations`,nav_portfolio:`Portfolio`,nav_process:`Process`,nav_book:`Réserver`,nav_faq:`FAQ`,nav_cta:`Prendre RDV`,
+    hero_badge:`Disponible pour de nouveaux projets`,
+    hero_h1:`Des vidéos de présentation <br class="d-br">qui transforment vos <br class="d-br">visiteurs en <span class="serif">clients</span>.`,
+    hero_sub:`J'aide les startups et les SaaS à expliquer leur produit clairement pour convaincre plus vite et convertir davantage.`,
+    hero_cta1:`Réserver un appel découverte →`,hero_cta2:`Voir mes réalisations`,
+    partners_label:`Ils m'ont fait confiance`,
+    work_eyebrow:`Réalisations`,work_h2:`Des vidéos qui <span class="serif">racontent</span> le produit.`,work_portfolio:`Voir le portfolio complet →`,see_video:`Voir la vidéo`,
+    process_eyebrow:`Comment je travaille`,process_h2:`Un process <span class="serif">clair</span>, du brief à la livraison.`,
+    process_lead:`Chaque étape est pensée pour servir un message simple : ce qui doit être compris, retenu et désiré.`,
+    step1_t:`Brief stratégique`,step1_p:`On définit le produit, les utilisateurs, le problème, les fonctionnalités, les assets et le message — tout est centralisé sur une fiche projet.`,
+    step2_t:`Storyboard`,step2_p:`On transforme le brief en une vidéo claire, scène par scène. Chaque plan est validé avant de passer à la production.`,
+    step3_t:`Animation`,step3_p:`La production complète de la vidéo : animation, illustrations, transitions, voix off si nécessaire et sound design.`,
+    step4_t:`Livraison`,step4_p:`Exports, formats, derniers ajustements et livraison finale.`,
+    book_eyebrow:`Réserver`,book_h2:`Réservez votre <span class="serif">appel découverte</span>.`,
+    book_lead:`30 minutes pour parler de votre produit et voir comment je peux le mettre en vidéo. Choisissez le créneau qui vous arrange.`,
+    faq_eyebrow:`FAQ`,faq_h2:`Les questions <span class="serif">fréquentes</span>.`,
+    faq1_q:`Quel est le délai de réalisation ?`,faq1_a:`Le délai estimé est de 7 à 10 jours ouvrés pour un Explainer de 60 secondes, à compter de la validation du brief et de l'acompte.`,
+    faq2_q:`Comment se passe le paiement ?`,faq2_a:`50% d'acompte avant le démarrage du projet, puis 50% à la livraison de la vidéo finale.`,
+    faq3_q:`Qu'est-ce qui est inclus dans le prix ?`,faq3_a:`Tout : script, storyboard, motion design, sound design, 2 rounds de retours à chaque étape, et la livraison dans tous les formats convenus (16:9, vertical en option).`,
+    faq4_q:`Puis-je demander des modifications ?`,faq4_a:`Oui. Deux rounds de retours sont inclus à chaque étape (script, storyboard, version finale). Les ajustements mineurs sont réalisés sans impact. Une refonte importante ou de nouvelles scènes après validation peuvent faire l'objet d'un devis complémentaire.`,
+    faq5_q:`Pour quels types de projets travaillez-vous ?`,faq5_a:`Principalement des vidéos de présentation pour SaaS, startups, produits IA et TPE/PME — notamment lors d'un lancement, d'une nouvelle fonctionnalité ou pour mieux expliquer une offre.`,
+    contact_eyebrow:`Contact`,contact_h2:`Donnons de la <span class="serif">clarté</span> à votre produit.`,
+    contact_p:`Réservez un appel découverte de 30 min. On parle de votre produit et de la meilleure façon de le mettre en vidéo.`,
+    contact_cta1:`Réserver un créneau →`,contact_cta2:`M'écrire`,footer_rights:`Tous droits réservés.`,foot_contact:`Contact`
+  },
+  en:{
+    nav_work:`Work`,nav_portfolio:`Portfolio`,nav_process:`Process`,nav_book:`Book`,nav_faq:`FAQ`,nav_cta:`Book a call`,
+    hero_badge:`Available for new projects`,
+    hero_h1:`Presentation videos that <br class="d-br">turn your visitors <br class="d-br">into <span class="serif">clients</span>.`,
+    hero_sub:`I help startups and SaaS explain their product clearly — to convince faster and convert more.`,
+    hero_cta1:`Book a discovery call →`,hero_cta2:`See my work`,
+    partners_label:`Trusted by`,
+    work_eyebrow:`Work`,work_h2:`Videos that <span class="serif">tell</span> the product story.`,work_portfolio:`See full portfolio →`,see_video:`Watch the video`,
+    process_eyebrow:`How I work`,process_h2:`A <span class="serif">clear</span> process, from brief to delivery.`,
+    process_lead:`Every step serves one simple message: what must be understood, remembered and desired.`,
+    step1_t:`Strategic brief`,step1_p:`We define the product, users, problem, features, assets and message — all centralized in one project sheet.`,
+    step2_t:`Storyboard`,step2_p:`We turn the brief into a clear video, scene by scene. Every shot is approved before production.`,
+    step3_t:`Animation`,step3_p:`Full video production: animation, illustrations, transitions, voice-over if needed and sound design.`,
+    step4_t:`Delivery`,step4_p:`Exports, formats, final tweaks and final delivery.`,
+    book_eyebrow:`Book`,book_h2:`Book your <span class="serif">discovery call</span>.`,
+    book_lead:`30 minutes to talk about your product and see how I can put it into video. Pick the slot that works for you.`,
+    faq_eyebrow:`FAQ`,faq_h2:`Frequently <span class="serif">asked</span> questions.`,
+    faq1_q:`What's the turnaround time?`,faq1_a:`The estimated turnaround is 7 to 10 business days for a 60-second explainer, from brief approval and deposit.`,
+    faq2_q:`How does payment work?`,faq2_a:`50% deposit before the project starts, then 50% on delivery of the final video.`,
+    faq3_q:`What's included in the price?`,faq3_a:`Everything: script, storyboard, motion design, sound design, 2 rounds of revisions at each step, and delivery in all agreed formats (16:9, vertical optional).`,
+    faq4_q:`Can I request changes?`,faq4_a:`Yes. Two rounds of revisions are included at each step (script, storyboard, final version). Minor tweaks are handled at no cost. A major rework or new scenes after approval may require an additional quote.`,
+    faq5_q:`What kinds of projects do you work on?`,faq5_a:`Mainly presentation videos for SaaS, startups, AI products and SMEs — especially for a launch, a new feature, or to better explain an offer.`,
+    contact_eyebrow:`Contact`,contact_h2:`Let's bring <span class="serif">clarity</span> to your product.`,
+    contact_p:`Book a 30-min discovery call. We talk about your product and the best way to put it into video.`,
+    contact_cta1:`Book a slot →`,contact_cta2:`Email me`,footer_rights:`All rights reserved.`,foot_contact:`Contact`
+  }
+};
+function applyLang(lang){
+  const dict=T[lang]||T.en;document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const v=dict[el.getAttribute('data-i18n')];if(v!=null)el.textContent=v;});
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{const v=dict[el.getAttribute('data-i18n-html')];if(v!=null)el.innerHTML=v;});
+  const tg=document.getElementById('langToggle');if(tg)tg.textContent=(lang==='en'?'FR':'EN');
+  try{localStorage.setItem('lang',lang);}catch(e){}
+}
+let curLang=(function(){try{return localStorage.getItem('lang');}catch(e){return null;}})()||'en';
+document.getElementById('langToggle').onclick=()=>{curLang=(curLang==='en'?'fr':'en');applyLang(curLang);};
+applyLang(curLang);
 
 // Apparition au scroll
 const io = new IntersectionObserver((entries) => {

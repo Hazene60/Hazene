@@ -5,6 +5,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Portfolio — Hazene, motion design pour SaaS & startups</title>
 <meta name="description" content="Toutes les réalisations de Yoann Hazene : vidéos de présentation, product explainers et VSL en motion design pour SaaS, startups et produits tech." />
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hazene60.github.io/Hazene/portfolio.html">
+<meta property="og:title" content="Portfolio — Hazene, motion design pour SaaS & startups">
+<meta property="og:description" content="Vidéos de présentation, product explainers et VSL en motion design pour SaaS, startups et produits tech.">
+<meta property="og:image" content="https://hazene60.github.io/Hazene/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Portfolio — Hazene">
+<meta name="twitter:description" content="Vidéos de présentation, product explainers et VSL en motion design pour SaaS, startups et produits tech.">
+<meta name="twitter:image" content="https://hazene60.github.io/Hazene/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -48,6 +61,8 @@ header.nav.scrolled{background:rgba(251,251,250,.8);border-bottom:1px solid var(
 .nav-links{display:flex;gap:30px;align-items:center}
 .nav-links a{color:var(--muted);font-size:.93rem;transition:color .2s}
 .nav-links a:hover{color:var(--text)}
+.lang-toggle{border:1px solid var(--border-strong);background:var(--surface);color:var(--muted);border-radius:999px;padding:6px 12px;font-size:.8rem;font-weight:600;letter-spacing:.06em;cursor:pointer;font-family:inherit;transition:color .2s,background .2s}
+.lang-toggle:hover{color:var(--text);background:var(--bg-soft)}
 @media(max-width:640px){.nav-links a:not(.btn){display:none}}
 /* Header aurora */
 .pf-hero{position:relative;overflow:hidden;padding:170px 0 70px;text-align:center}
@@ -96,10 +111,11 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--faint);font
   <div class="wrap nav-inner">
     <a href="index.html" class="logo">Hazene</a>
     <nav class="nav-links">
-      <a href="index.html">Accueil</a>
-      <a href="index.html#process">Process</a>
-      <a href="index.html#offre">Réserver</a>
-      <a href="index.html#contact" class="btn btn-ghost">Prendre RDV</a>
+      <a href="index.html" data-i18n="p_home">Accueil</a>
+      <a href="index.html#process" data-i18n="nav_process">Process</a>
+      <a href="index.html#offre" data-i18n="nav_book">Réserver</a>
+      <button class="lang-toggle" id="langToggle" type="button" aria-label="Changer de langue">FR</button>
+      <a href="index.html#contact" class="btn btn-ghost" data-i18n="nav_cta">Prendre RDV</a>
     </nav>
   </div>
 </header>
@@ -107,10 +123,10 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--faint);font
 <section class="pf-hero">
   <div class="aurora-wrap"><div class="aurora"></div></div>
   <div class="inner wrap">
-    <a href="index.html" class="back">← Retour à l'accueil</a>
-    <p class="eyebrow">Portfolio</p>
-    <h1>Toutes mes <span class="serif">réalisations</span>.</h1>
-    <p class="lead">Vidéos de présentation, product explainers et VSL en motion design pour SaaS, startups et produits tech.</p>
+    <a href="index.html" class="back" data-i18n="p_back">← Retour à l'accueil</a>
+    <p class="eyebrow" data-i18n="p_eyebrow">Portfolio</p>
+    <h1 data-i18n-html="p_h1">Toutes mes <span class="serif">réalisations</span>.</h1>
+    <p class="lead" data-i18n="p_lead">Vidéos de présentation, product explainers et VSL en motion design pour SaaS, startups et produits tech.</p>
   </div>
 </section>
 
@@ -120,11 +136,11 @@ footer{border-top:1px solid var(--border);padding:44px 0;color:var(--faint);font
 
 <footer>
   <div class="wrap foot-inner">
-    <div>© <span id="year"></span> Yoann Hazene. Tous droits réservés.</div>
+    <div>© <span id="year"></span> Yoann Hazene. <span data-i18n="footer_rights">Tous droits réservés.</span></div>
     <div class="foot-links">
-      <a href="index.html">Accueil</a>
-      <a href="index.html#offre">Réserver</a>
-      <a href="index.html#contact">Contact</a>
+      <a href="index.html" data-i18n="p_home">Accueil</a>
+      <a href="index.html#offre" data-i18n="nav_book">Réserver</a>
+      <a href="index.html#contact" data-i18n="p_contact">Contact</a>
     </div>
   </div>
 </footer>
@@ -167,7 +183,7 @@ const grid=document.getElementById('pfGrid');
 ALL.forEach(v=>{
   const a=document.createElement('a');a.className='pf-card';a.href='https://youtu.be/'+v.id;a.target='_blank';a.rel='noopener';
   a.innerHTML='<img alt="'+v.t+'" data-id="'+v.id+'" loading="lazy">'
-    +'<div class="pf-cap"><div><div class="t">'+v.t+'</div><div class="ty">'+v.type+'</div></div>'
+    +'<div class="pf-cap"><div><div class="t">'+v.t+'</div><div class="ty" data-type="'+v.type+'">'+v.type+'</div></div>'
     +'<span class="go"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></div>';
   a.addEventListener('click',e=>{ e.preventDefault(); openVideo(v.id); });
   grid.appendChild(a);
@@ -183,6 +199,30 @@ function closeVideo(){lb.classList.remove('open');lbVideo.innerHTML='';document.
 document.getElementById('lbClose').onclick=closeVideo;
 lb.addEventListener('click',e=>{ if(e.target===lb)closeVideo(); });
 addEventListener('keydown',e=>{ if(e.key==='Escape'&&lb.classList.contains('open'))closeVideo(); });
+
+// ---------- Bilingue FR / EN (anglais par défaut) ----------
+const T={
+  fr:{p_home:`Accueil`,nav_process:`Process`,nav_book:`Réserver`,nav_cta:`Prendre RDV`,p_back:`← Retour à l'accueil`,
+    p_eyebrow:`Portfolio`,p_h1:`Toutes mes <span class="serif">réalisations</span>.`,
+    p_lead:`Vidéos de présentation, product explainers et VSL en motion design pour SaaS, startups et produits tech.`,
+    footer_rights:`Tous droits réservés.`,p_contact:`Contact`},
+  en:{p_home:`Home`,nav_process:`Process`,nav_book:`Book`,nav_cta:`Book a call`,p_back:`← Back to home`,
+    p_eyebrow:`Portfolio`,p_h1:`All my <span class="serif">work</span>.`,
+    p_lead:`Presentation videos, product explainers and VSLs in motion design for SaaS, startups and tech products.`,
+    footer_rights:`All rights reserved.`,p_contact:`Contact`}
+};
+const TYPE_EN={'Vidéo de présentation':'Presentation video','Product Explainer':'Product Explainer','VSL':'VSL'};
+function applyLang(lang){
+  const dict=T[lang]||T.en;document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const v=dict[el.getAttribute('data-i18n')];if(v!=null)el.textContent=v;});
+  document.querySelectorAll('[data-i18n-html]').forEach(el=>{const v=dict[el.getAttribute('data-i18n-html')];if(v!=null)el.innerHTML=v;});
+  document.querySelectorAll('.ty[data-type]').forEach(el=>{const t=el.getAttribute('data-type');el.textContent=(lang==='en'?(TYPE_EN[t]||t):t);});
+  const tg=document.getElementById('langToggle');if(tg)tg.textContent=(lang==='en'?'FR':'EN');
+  try{localStorage.setItem('lang',lang);}catch(e){}
+}
+let curLang=(function(){try{return localStorage.getItem('lang');}catch(e){return null;}})()||'en';
+document.getElementById('langToggle').onclick=()=>{curLang=(curLang==='en'?'fr':'en');applyLang(curLang);};
+applyLang(curLang);
 </script>
 </body>
 </html>
