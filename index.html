@@ -439,7 +439,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 // ---------- Carrousel réalisations (Gallery6) ----------
 const REELS=[
   {id:'z3gSkUamars',t:'Explainer GPT',type:'Product Explainer'},
-  {id:'5x0po4I1C1I',t:'RISE',type:'Vidéo de présentation'},
+  {id:'vdH8PmeVthk',t:'RISE — Season 2',type:'Vidéo de présentation'},
   {id:'MflFz01nLHg',t:'Higgsfield',type:'Product Explainer'},
   {id:'LEphGSek948',t:'Claude',type:'Product Explainer'},
   {id:'7MGRW9XjuBI',t:'Kosmos',type:'Vidéo de présentation'},
@@ -460,7 +460,7 @@ function loadThumb(img){
 const stage=document.getElementById('csStage'),dotsEl=document.getElementById('csDots'),openEl=document.getElementById('csOpen');
 const CFG={overlap:.5,spread:44,maxVis:7,depth:130,tilt:12,lift:22,aScale:1.03,iScale:.93};
 const maxOff=Math.floor(CFG.maxVis/2),stepDeg=maxOff>0?CFG.spread/maxOff:0;
-let active=Math.max(0,REELS.findIndex(v=>v.id==='5x0po4I1C1I')),suppressClick=false; // démarre sur RISE
+let active=Math.max(0,REELS.findIndex(v=>v.id==='vdH8PmeVthk')),suppressClick=false; // démarre sur RISE — Season 2
 const cards=REELS.map((v,i)=>{
   const c=document.createElement('div');c.className='cs-card';
   c.innerHTML='<img alt="'+v.t+'" data-id="'+v.id+'"><div class="cs-cap">'+v.t+'</div>';
