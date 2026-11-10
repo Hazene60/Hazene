@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Book a call — Hazene</title>
+<meta name="description" content="Book a 15 min call to plan your launch video.">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..600&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .wrap{position:relative;z-index:10;width:100%;max-width:1120px;margin:0 auto;padding:150px 20px 140px;text-align:center}
+  .cal{margin-top:44px;width:100%;min-width:320px;height:700px;border-radius:8px;overflow:hidden}
+  @media (max-width:767px){
+    .wrap{padding:130px 12px 110px}
+    .cal{margin-top:32px;height:1000px}
+  }
+</style>
+</head>
+<body>
+<div class="frame-guide l" aria-hidden="true"></div>
+<div class="frame-guide r" aria-hidden="true"></div>
+
+<header class="top appear">
+  <span class="mono">motion design</span>
+  <a class="wordmark" href="index.html">HAZENE</a>
+  <span class="mono" data-clock>--:--</span>
+</header>
+<a class="back appear" href="index.html" aria-label="Back home">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12H5"/><path d="M11 6l-6 6 6 6"/></svg>
+</a>
+
+<main class="wrap">
+  <h1 class="appear" style="animation-delay:.05s"><span class="accent">Book a 15 min call.</span><br>Let's plan your launch.</h1>
+  <div class="calendly-inline-widget cal appear" style="animation-delay:.2s"
+       data-url="https://calendly.com/yohazene4/30min?hide_gdpr_banner=1&primary_color=5b54f0&hide_landing_page_details=1"></div>
+</main>
+
+<footer class="foot">
+  <a class="mono" href="https://www.linkedin.com/in/yoann-hazene-72b917331/" target="_blank" rel="noopener">LinkedIn</a>
+  <a class="mono" href="https://x.com/Hazene_Edit" target="_blank" rel="noopener">@Hazene_Edit</a>
+</footer>
+
+<script src="clock.js"></script>
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</body>
+</html>
